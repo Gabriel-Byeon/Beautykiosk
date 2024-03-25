@@ -16,6 +16,6 @@ public class MainController {
 
     @GetMapping("/")
     public String root() {
-        return "redirect:/goods/list";
+        return "redirect:/user/login";
     }
 }

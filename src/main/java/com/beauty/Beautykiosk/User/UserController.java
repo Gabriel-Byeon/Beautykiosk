@@ -36,7 +36,7 @@ public class UserController {
 
         userService.create(userCreateForm.getUsername(), userCreateForm.getPassword1());
 
-        return "redirect:/";
+        return "redirect:/goods/list";
     }
 
     @GetMapping("/login")

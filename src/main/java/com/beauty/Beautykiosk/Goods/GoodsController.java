@@ -81,7 +81,7 @@ public class GoodsController {
     public String questionDelete(Principal principal, @PathVariable("id") Integer id) {
         Goods goods = this.goodsService.getGoods(id);
         this.goodsService.delete(goods);
-        return "redirect:/";
+        return "redirect:/goods/list";
     }
 
 }
