@@ -56,4 +56,8 @@ public class GoodsService {
         goods.setModifyDate(LocalDateTime.now());
         this.goodsRepository.save(goods);
     }
+
+    public void delete(Goods goods) {
+        this.goodsRepository.delete(goods);
+    }
 }

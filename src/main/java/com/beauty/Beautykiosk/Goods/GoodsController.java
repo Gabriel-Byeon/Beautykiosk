@@ -72,4 +72,13 @@ public class GoodsController {
         this.goodsService.modify(goods, goodsForm.getName(), goodsForm.getEffect(), goodsForm.getImage(), goodsForm.getNumber());
         return String.format("redirect:/goods/detail/%s", id);
     }
+
+    @PreAuthorize("isAuthenticated()")
+    @GetMapping("/delete/{id}")
+    public String questionDelete(Principal principal, @PathVariable("id") Integer id) {
+        Goods goods = this.goodsService.getGoods(id);
+        this.goodsService.delete(goods);
+        return "redirect:/";
+    }
+
 }
