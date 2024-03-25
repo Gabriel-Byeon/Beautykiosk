@@ -30,7 +30,7 @@ public class SecurityConfig {
                         .defaultSuccessUrl("/goods/list"))
                 .logout((logout) -> logout
                         .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
-                        .logoutSuccessUrl("/")
+                        .logoutSuccessUrl("/") // 나중에 GUI 화면으로 돌아가도록 수정 요망
                         .invalidateHttpSession(true))
         ;
         return http.build();
