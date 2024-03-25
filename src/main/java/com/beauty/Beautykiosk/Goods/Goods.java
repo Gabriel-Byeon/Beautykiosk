@@ -32,5 +32,7 @@ public class Goods {
 
     private Integer number; // 재고
 
-    private LocalDateTime createDate;
+    private LocalDateTime createDate; // 작성일시
+
+    private LocalDateTime modifyDate; // 수정일시
 }

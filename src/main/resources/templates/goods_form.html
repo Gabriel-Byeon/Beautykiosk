@@ -1,11 +1,12 @@
 <html layout:decorate="~{layout}">
 <div layout:fragment="content" class="container">
     <h5 class="my-3 border-bottom pb-2">화장품 등록</h5>
-    <form th:action="@{/goods/create}" th:object="${goodsForm}" method="post">
+    <form th:object="${goodsForm}" method="post">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
         <div th:replace="~{form_errors :: formErrorsFragment}"></div>
         <div class="mb-3">
             <label for="name" class="form-label">품목</label>
-            <input type="text" nth:field="*{name}" class="form-control">
+            <input type="text" th:field="*{name}" class="form-control">
         </div>
         <div class="mb-3">
             <label for="effect" class="form-label">효과</label>

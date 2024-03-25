@@ -47,4 +47,13 @@ public class GoodsService {
         Pageable pageable = PageRequest.of(page, 10, Sort.by(sorts));
         return this.goodsRepository.findAll(pageable);
     }
+
+    public void modify(Goods goods, String name, String effect, byte[] image, Integer number) {
+        goods.setName(name);
+        goods.setEffect(effect);
+        goods.setImage(image);
+        goods.setNumber(number);
+        goods.setModifyDate(LocalDateTime.now());
+        this.goodsRepository.save(goods);
+    }
 }

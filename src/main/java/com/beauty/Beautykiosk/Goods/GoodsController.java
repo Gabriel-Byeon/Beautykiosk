@@ -1,14 +1,18 @@
 package com.beauty.Beautykiosk.Goods;
 
+import java.security.Principal;
 import java.util.List;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 @RequestMapping("/goods")
 @RequiredArgsConstructor
@@ -43,5 +47,29 @@ public class GoodsController {
         }
         this.goodsService.create(goodsForm.getName(), goodsForm.getEffect(), goodsForm.getImage(), goodsForm.getNumber());
         return "redirect:/goods/list"; // 질문 저장후 질문목록으로 이동
+    }
+
+
+    @PreAuthorize("isAuthenticated()")
+    @GetMapping("/modify/{id}")
+    public String goodsModify(GoodsForm goodsForm, @PathVariable("id") Integer id, Principal principal) {
+        Goods goods = this.goodsService.getGoods(id);
+        goodsForm.setName(goods.getName());
+        goodsForm.setEffect(goods.getEffect());
+        goodsForm.setImage(goods.getImage());
+        goodsForm.setNumber(goods.getNumber());
+        return "goods_form";
+    }
+
+    @PreAuthorize("isAuthenticated()")
+    @PostMapping("/modify/{id}")
+    public String goodsModify(@Valid GoodsForm goodsForm, BindingResult bindingResult,
+                                 Principal principal, @PathVariable("id") Integer id) {
+        if (bindingResult.hasErrors()) {
+            return "goods_form";
+        }
+        Goods goods = this.goodsService.getGoods(id);
+        this.goodsService.modify(goods, goodsForm.getName(), goodsForm.getEffect(), goodsForm.getImage(), goodsForm.getNumber());
+        return String.format("redirect:/goods/detail/%s", id);
     }
 }

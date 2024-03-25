@@ -1,6 +1,7 @@
 package com.beauty.Beautykiosk.Goods;
 
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,6 +16,6 @@ public class GoodsForm {
 
     private byte[] image;
 
-    @NotEmpty(message = "재고는 필수항목입니다")
+    @NotNull(message = "재고는 필수입니다")
     private Integer number;
 }
