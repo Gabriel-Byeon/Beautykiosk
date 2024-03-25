@@ -14,7 +14,7 @@ public class GoodsForm {
     @NotEmpty(message = "효과는 필수항목입니다")
     private String effect;
 
-    private byte[] image;
+    private String image;
 
     @NotNull(message = "재고는 필수입니다")
     private Integer number;

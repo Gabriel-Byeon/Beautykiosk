@@ -31,7 +31,7 @@ public class GoodsService {
         }
     }
 
-    public void create(String name, String effect, byte[] image, Integer number) {
+    public void create(String name, String effect, String image, Integer number) {
         Goods g = new Goods();
         g.setName(name);
         g.setEffect(effect);
@@ -48,7 +48,7 @@ public class GoodsService {
         return this.goodsRepository.findAll(pageable);
     }
 
-    public void modify(Goods goods, String name, String effect, byte[] image, Integer number) {
+    public void modify(Goods goods, String name, String effect, String image, Integer number) {
         goods.setName(name);
         goods.setEffect(effect);
         goods.setImage(image);

@@ -25,7 +25,7 @@ public class Goods {
     private String name;    // 이름
 
     @Lob
-    private byte[] image; // 이미지 데이터를 저장하는 필드
+    private String image; // 이미지 데이터를 저장하는 필드
 
     @Column(columnDefinition = "TEXT")
     private String effect;  // 효능,효과
