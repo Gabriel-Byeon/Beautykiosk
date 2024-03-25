@@ -1,5 +1,7 @@
 package com.beauty.Beautykiosk.User;
 
-public class extends UserRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<SiteUser, Long> {
 
 }
