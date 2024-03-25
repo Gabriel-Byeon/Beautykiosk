@@ -17,7 +17,7 @@ class SbbApplicationTests {
 		for (int i = 1; i <= 300; i++) {
 			String name = String.format("테스트 데이터입니다:[%03d]", i);
 			String effect = "내용무";
-			byte[] image = new byte[0];
+			String image = "url무";
 			Integer number = 0;
 
 			this.goodsService.create(name, effect, image, number);

@@ -22,9 +22,12 @@ public class GoodsController {
     private final GoodsService goodsService;
 
     @GetMapping("/list")
-    public String list(Model model, @RequestParam(value = "page", defaultValue = "0") int page) {
-        Page<Goods> paging = this.goodsService.getList(page);
+    public String list(Model model, @RequestParam(value = "page",
+            defaultValue = "0") int page, @RequestParam(value = "kw",
+            defaultValue = "") String kw) {
+        Page<Goods> paging = this.goodsService.getList(page, kw);
         model.addAttribute("paging", paging);
+        model.addAttribute("kw", kw);
         return "goods_list";
     }
 
