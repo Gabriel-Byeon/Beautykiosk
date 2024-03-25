@@ -1,0 +1,25 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="container">
+    <h5 class="my-3 border-bottom pb-2">화장품 등록</h5>
+    <form th:action="@{/goods/create}" th:object="${goodsForm}" method="post">
+        <div th:replace="~{form_errors :: formErrorsFragment}"></div>
+        <div class="mb-3">
+            <label for="name" class="form-label">품목</label>
+            <input type="text" nth:field="*{name}" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="effect" class="form-label">효과</label>
+            <textarea th:field="*{effect}" class="form-control" rows="10"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">이미지</label>
+            <textarea th:field="*{image}" class="form-control" rows="10"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="number" class="form-label">재고</label>
+            <input th:field="*{number}" class="form-control">
+        </div>
+        <input type="submit" value="저장하기" class="btn btn-primary my-2">
+    </form>
+</div>
+</html>
