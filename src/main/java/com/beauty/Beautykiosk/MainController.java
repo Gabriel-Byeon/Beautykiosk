@@ -11,9 +11,9 @@ public class MainController {
     public String index()
     {
         if(1==1) {
-            return "beauty_to_login_please_delete_just_test";
+            return "navbar";
         }
-        return "reirect:/";
+        return "redirect:/";
     }   // 테스트 용도
 
     @GetMapping("/")
