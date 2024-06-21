@@ -1,6 +1,13 @@
 <html layout:decorate="~{layout}">
 <div layout:fragment="content" class="container my-3">
     <!-- 품명 -->
+    <h2 class="border-bottom py-2" th:text="${goods.id}"></h2>
+    <div class="card my-3">
+        <div class="card-body">
+            <h5 class="border-bottom py-2">제품번호</h5>
+            <div class="card-text" th:utext="${@commonUtil.markdown(goods.id)}"></div>
+        </div>
+    </div>
     <h2 class="border-bottom py-2" th:text="${goods.name}"></h2>
     <div class="card my-3">
         <div class="card-body">

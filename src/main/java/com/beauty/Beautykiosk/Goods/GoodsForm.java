@@ -8,6 +8,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class GoodsForm {
+
+    @NotNull(message = "고유번호는 필수항목입니다")
+    private Integer id;
+
     @NotEmpty(message = "품목명은 필수항목입니다")
     private String name;
 

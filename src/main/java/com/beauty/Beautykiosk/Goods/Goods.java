@@ -18,7 +18,6 @@ import java.time.LocalDateTime;
 public class Goods {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id; // 고유 번호
 
     @Column(length = 200)

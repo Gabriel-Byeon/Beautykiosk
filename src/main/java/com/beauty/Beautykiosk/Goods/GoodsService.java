@@ -45,8 +45,9 @@ public class GoodsService {
         }
     }
 
-    public void create(String name, String effect, String image, Integer number, String age) {
+    public void create(Integer id, String name, String effect, String image, Integer number, String age) {
         Goods g = new Goods();
+        g.setId(id);
         g.setName(name);
         g.setEffect(effect);
         g.setImage(image);
@@ -63,7 +64,8 @@ public class GoodsService {
         return this.goodsRepository.findAll(spec, pageable);
     }
 
-    public void modify(Goods goods, String name, String effect, String image, Integer number, String age) {
+    public void modify(Goods goods, Integer id, String name, String effect, String image, Integer number, String age) {
+        goods.setId(id);
         goods.setName(name);
         goods.setEffect(effect);
         goods.setImage(image);
