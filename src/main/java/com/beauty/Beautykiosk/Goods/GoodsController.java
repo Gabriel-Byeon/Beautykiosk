@@ -51,7 +51,7 @@ public class GoodsController {
         if (bindingResult.hasErrors()) {
             return "goods_form";
         }
-        this.goodsService.create(goodsForm.getName(), goodsForm.getEffect(), goodsForm.getImage(), goodsForm.getNumber());
+        this.goodsService.create(goodsForm.getName(), goodsForm.getEffect(), goodsForm.getImage(), goodsForm.getNumber(), goodsForm.getAge());
         return "redirect:/goods/list"; // 질문 저장후 질문목록으로 이동
     }
 
@@ -75,7 +75,7 @@ public class GoodsController {
             return "goods_form";
         }
         Goods goods = this.goodsService.getGoods(id);
-        this.goodsService.modify(goods, goodsForm.getName(), goodsForm.getEffect(), goodsForm.getImage(), goodsForm.getNumber());
+        this.goodsService.modify(goods, goodsForm.getName(), goodsForm.getEffect(), goodsForm.getImage(), goodsForm.getNumber(), goodsForm.getAge());
         return String.format("redirect:/goods/detail/%s", id);
     }
 

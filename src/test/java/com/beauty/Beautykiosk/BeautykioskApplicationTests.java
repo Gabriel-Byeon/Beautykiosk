@@ -19,8 +19,9 @@ class SbbApplicationTests {
 			String effect = "내용무";
 			String image = "url무";
 			Integer number = 0;
+			String age = 25;
 
-			this.goodsService.create(name, effect, image, number);
+			this.goodsService.create(name, effect, image, number, age);
 		}
 	}
 }

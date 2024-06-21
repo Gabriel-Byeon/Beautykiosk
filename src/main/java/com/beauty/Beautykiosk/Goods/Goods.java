@@ -30,9 +30,8 @@ public class Goods {
     @Column(columnDefinition = "TEXT")
     private String effect;  // 효능,효과
 
-    private Integer number; // 재고
+    private Integer number; // 가격
 
-    private LocalDateTime createDate; // 작성일시
+    private String age; // 나이대 // 추가해야됨
 
-    private LocalDateTime modifyDate; // 수정일시
 }

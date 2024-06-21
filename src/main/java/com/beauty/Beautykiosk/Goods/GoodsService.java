@@ -45,30 +45,30 @@ public class GoodsService {
         }
     }
 
-    public void create(String name, String effect, String image, Integer number) {
+    public void create(String name, String effect, String image, Integer number, String age) {
         Goods g = new Goods();
         g.setName(name);
         g.setEffect(effect);
         g.setImage(image);
         g.setNumber(number);
-        g.setCreateDate(LocalDateTime.now());
+        g.setAge(age);
         this.goodsRepository.save(g);
     }
 
     public Page<Goods> getList(int page, String kw) {
         List<Sort.Order> sorts = new ArrayList<>();
-        sorts.add(Sort.Order.desc("createDate"));
+        //sorts.add(Sort.Order.desc("createDate"));
         Pageable pageable = PageRequest.of(page, 10, Sort.by(sorts));
         Specification<Goods> spec = search(kw);
         return this.goodsRepository.findAll(spec, pageable);
     }
 
-    public void modify(Goods goods, String name, String effect, String image, Integer number) {
+    public void modify(Goods goods, String name, String effect, String image, Integer number, String age) {
         goods.setName(name);
         goods.setEffect(effect);
         goods.setImage(image);
         goods.setNumber(number);
-        goods.setModifyDate(LocalDateTime.now());
+        goods.setAge(age);
         this.goodsRepository.save(goods);
     }
 

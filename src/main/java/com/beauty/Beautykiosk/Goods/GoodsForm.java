@@ -16,6 +16,8 @@ public class GoodsForm {
 
     private String image;
 
-    @NotNull(message = "재고는 필수입니다")
+    @NotNull(message = "가격 필수입니다")
     private Integer number;
+
+    private String age;
 }
